@@ -19,6 +19,21 @@ function readFormConvertToEPMessage() {
     $('.post-json').addClass('loading');
     convertToEPMessage(formContent).then(function (fc) {
 	$('.post-json').removeClass('loading');
+
+	$('#submitform').remove();
+
+	let resultContent = '<form method="POST" action="' + fc.PostURL + '" name="submitform" id="submitform">';
+
+	Object.keys(fc).forEach(function (k) {
+	    resultContent += '<input type="hidden" name="' + k +
+		'" value="' + fc[k] + '" />';
+	});
+	
+	resultContent += '</form>';
+
+	$('body').append(resultContent);
+
+	document.forms['submitform'].submit();
     });
 }
 
