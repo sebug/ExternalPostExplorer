@@ -4,7 +4,8 @@
   "description": "A page that allows to try out the External POST interface to B-Com.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "build": "babel src -d lib && r.js -o app.build.js && cp node_modules/babel-polyfill/dist/polyfill.min.js ."
   },
   "keywords": [
     "b-com",
