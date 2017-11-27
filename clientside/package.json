@@ -1,0 +1,16 @@
+{
+  "name": "external-post-explorer",
+  "version": "1.0.0",
+  "description": "A page that allows to try out the External POST interface to B-Com.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "b-com",
+    "http",
+    "post"
+  ],
+  "author": "Sebastian Gfeller",
+  "license": "Apache-2.0"
+}
