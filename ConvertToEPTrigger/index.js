@@ -36,10 +36,22 @@ module.exports = function (context, req) {
 
     context.log('hashed ' + hashed);
 
-
-
-    context.res = {
-	message: 'Converted'
+    const result = {
+	ExternalReferrerHash: hashed
     };
+
+    const mapping = {
+	firstname: 'Contact_FirstName',
+	surname: 'Contact_LastName',
+	email: 'Contact_Email'
+    };
+
+    Object.keys(req.body).forEach(function (k) {
+	if (mapping[k]) {
+	    result[mapping[k]] = req.body[k];
+	}
+    });
+
+    context.res = result;
     context.done();
 };
