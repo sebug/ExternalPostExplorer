@@ -3,10 +3,31 @@
   <head>
     <meta charset="utf-8" />
     <title>External POST explorer</title>
+    <script src="static/polyfill.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.min.js"></script>
+    <script>
+      require.config({
+      paths: {
+      "main": "static/dist"
+      }
+      });
+      require(["main"]);
+    </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.js"></script>
   </head>
   <body>
-    <h1>External POST explorer</h1>
-    <p>Enter your JSON payload below and click on submit to send it to B-Com</p>
-    
+    <div class="main-content">
+      <h1 class="ui heading">External POST explorer</h1>
+      <p>Enter your JSON payload below and click on submit to send it to B-Com</p>
+      <form class="ui form">
+	<div class="field">
+	  <label>JSON payload</label>
+	  <textarea name="jsonpayload" id="jsonpayload"></textarea>
+	</div>
+	<button class="ui blue button post-json">Submit</button>
+      </form>
+    </div>
   </body>
 </html>
