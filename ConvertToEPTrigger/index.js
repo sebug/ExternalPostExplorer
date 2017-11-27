@@ -1,3 +1,5 @@
+const md5 = require('md5');
+
 module.exports = function (context, req) {
     context.log('Converting to External POST ' + JSON.stringify(req.body));
 
@@ -29,6 +31,10 @@ module.exports = function (context, req) {
     const textToHash = '' + preSharedKey + firstName + lastName + '' + identifier + '' + dateTimeShort;
 
     context.log('Text to hash is ' + textToHash);
+
+    const hashed = md5(textToHash);
+
+    context.log('hashed ' + hashed);
 
 
 
