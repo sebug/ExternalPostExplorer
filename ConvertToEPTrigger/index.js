@@ -52,6 +52,9 @@ module.exports = function (context, req) {
 	}
     });
 
+    result.ExternalApplicationCode = process.env.ExternalApplicationCode;
+    result.PostURL = process.env.PostURL;
+
     context.res = result;
     context.done();
 };
