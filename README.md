@@ -11,6 +11,8 @@ Now we can upload some static content:
 	az storage container create --name externalpostexplorerstatic
 	az storage blob upload --container-name externalpostexplorerstatic --file clientside/index.html --name index.html --content-type "text/html"
 	az storage container set-permission --name externalpostexplorerstatic --public-access blob
+	az storage blob upload --container-name externalpostexplorerstatic --file clientside/dist.js --name dist.js --content-type "application/javascript"
+	az storage blob upload --container-name externalpostexplorerstatic --file clientside/polyfill.min.js --name polyfill.min.js --content-type "application/javascript"
 
 
 The site is live under https://externalpostexplorer.azurewebsites.net
