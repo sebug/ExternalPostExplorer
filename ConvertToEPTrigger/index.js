@@ -1,5 +1,14 @@
 const md5 = require('md5');
 
+function convertTitle(titleText) {
+    if (!titleText) {
+	return titleText;
+    }
+    titleText = titleText.replace('.','');
+    titleText = titleText.toUpperCase();
+    return titleText;
+}
+
 module.exports = function (context, req) {
     context.log('Converting to External POST ' + JSON.stringify(req.body));
 
@@ -51,6 +60,10 @@ module.exports = function (context, req) {
 	    result[mapping[k]] = req.body[k];
 	}
     });
+
+    if (req.body.academic_title) {
+	result.Contact_Title_Code = convertTitle(req.body.academic_title);
+    }
 
     result.ExternalApplicationCode = process.env.ExternalApplicationCode;
     result.PostURL = process.env.PostURL;
