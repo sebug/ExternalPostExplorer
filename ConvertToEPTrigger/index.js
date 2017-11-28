@@ -52,7 +52,12 @@ module.exports = function (context, req) {
     const mapping = {
 	firstname: 'Contact_FirstName',
 	surname: 'Contact_LastName',
-	email: 'Contact_Email'
+	email: 'Contact_Email',
+	street: 'Address_Street1',
+	zip: 'Address_ZipCode',
+	city: 'Address_City',
+	country_iso: 'Address_Country_ISO',
+	phone: 'Contact_BusinessPhone'
     };
 
     Object.keys(req.body).forEach(function (k) {
